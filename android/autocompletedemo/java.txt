@@ -1,0 +1,36 @@
+package com.stuff.qq.practical4;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    AutoCompleteTextView at;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+
+
+        String s[]={"C","C++","JAVA","PYTHON","ANDROID","PLSQL","ASP.NET",
+                "PHP","HTML"};
+        at = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        ArrayAdapter<String>  a= new ArrayAdapter<String>(this,android.R.layout.select_dialog_item,s);
+        at.setThreshold(2);
+        at.setAdapter(a);
+        at.setTextColor(Color.RED);
+    }
+
+}
+
+
+
+
+
+
+

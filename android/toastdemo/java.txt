@@ -1,0 +1,66 @@
+package com.stuff.qq.practical56;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    Button b;
+    TextView v1,v2;
+    String s,s1,s2;
+
+    RadioGroup rdg;
+    RadioButton r1,r2;
+    CheckBox cb1,cb2,cb3,cb4;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        b=(Button)findViewById(R.id.button1);
+        v1=(TextView)findViewById(R.id.editText1);
+        v2=(TextView)findViewById(R.id.editText2);
+        rdg=(RadioGroup)findViewById(R.id.radiogroup);
+
+        cb1=(CheckBox)findViewById(R.id.checkBox1);
+        cb2=(CheckBox)findViewById(R.id.checkBox2);
+        cb3=(CheckBox)findViewById(R.id.checkBox3);
+        cb4=(CheckBox)findViewById(R.id.checkBox4);
+
+        b.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                s1= v1.getText().toString();
+                s2=v2.getText().toString();
+                int selectedId = rdg.getCheckedRadioButtonId();
+                RadioButton r3 = (RadioButton) findViewById(selectedId);
+                s=r3.getText().toString();
+                String h="";
+                if(cb1.isChecked()){
+                    h+=cb1.getText().toString();
+                }
+                if(cb2.isChecked()){
+                    h+=cb2.getText().toString();
+                }
+                if(cb3.isChecked()){
+                    h+=cb3.getText().toString();
+                }
+                if(cb4.isChecked()){
+                    h+=cb4.getText().toString();
+                }
+
+                String data="name="+s1+",Contact_no="+s2+",gender="+s+",hobbies="+ h;
+                Toast.makeText(MainActivity.this,"Biodata="+data,Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+}
+

@@ -1,0 +1,27 @@
+package com.stuff.qq.prac4;
+
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        String s[]={"C","C++","JAVA","PYTHON","ANDROID","PLSQL","ASP.NET","PHP","HTML"};
+        ArrayAdapter<String> a=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,s);
+        ListView lt=(ListView)findViewById(R.id.list);
+        lt.setAdapter(a);
+        lt.setChoiceMode(2);
+
+
+    }
+
+
+}
